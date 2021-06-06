@@ -18,6 +18,13 @@ public class AlarmClock
 
     protected void tic(){
         //TODO: fix
+        for (AlarmClockRecord record : itsAlarmClockRecords){
+            if (record.getIntervalDecrement() - CLOCK_INTERVAL_MILLIS <= 0){
+                record.getAlarmListener().wakeup();
+                record.setIntervalDecrement(record.getInterval());
+            }
+            else record.setIntervalDecrement(record.getIntervalDecrement() - CLOCK_INTERVAL_MILLIS);
+        }
     }
 
     public void register(int interval, AlarmListener pal) {
