@@ -1,23 +1,16 @@
 package WS1.Nimbus1;
 
-public class Nimbus1TempratureSensor {
-    private int interval = 60000;
-    private int lastReding = 0;
+import WS1.Observables.Sensor;
 
-    public int getInterval() {
-        return interval;
+public class Nimbus1TempratureSensor extends Sensor {
+    public RandomSupplier rnd = new RandomSupplier();
+
+    public Nimbus1TempratureSensor(String type, int interval) {
+        super(type, interval);
     }
 
+    @Override
     public int read() {
-        // TODO: 06/06/2021 what read() need to return
-        return 1;
-    }
-
-    public void check() {
-        int temp = read();
-        if (temp != lastReding) {
-            lastReding = temp;
-            //notifyObservers(temp);
-        }
+        return rnd.getRnd().nextInt(41);
     }
 }
