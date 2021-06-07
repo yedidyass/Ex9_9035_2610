@@ -5,6 +5,11 @@ public class AlarmClockRecord {
     private int intervalDecrement;
     private AlarmListener alarmListener;
 
+    public AlarmClockRecord(int interval, AlarmListener alarmListener) {
+        this.interval = interval;
+        this.intervalDecrement = interval;
+        this.alarmListener = alarmListener;
+    }
 
     public int getInterval() {
         return interval;

@@ -6,12 +6,12 @@ public class AlarmClock
 {
     public final int CLOCK_INTERVAL_MILLIS = 100;
     protected static AlarmClock instance = null;
-    private ArrayList<AlarmClockRecord> itsAlarmClockRecords = new ArrayList();
+    private ArrayList<AlarmClockRecord> itsAlarmClockRecords = new ArrayList<AlarmClockRecord>();
 
     protected AlarmClock() {}
     public static AlarmClock theInstance()
     {
-        if(null==instance)
+        if(instance == null)
             instance = new AlarmClock();
         return instance;
     }
@@ -29,5 +29,6 @@ public class AlarmClock
 
     public void register(int interval, AlarmListener pal) {
         //TODO: fix
+        itsAlarmClockRecords.add(new AlarmClockRecord(interval,pal));
     }
 }

@@ -11,6 +11,6 @@ public class Nimbus1TempratureSensor extends Sensor {
 
     @Override
     public int read() {
-        return rnd.getRnd().nextInt(41);
+        return rnd.getRnd().nextInt(40);
     }
 }

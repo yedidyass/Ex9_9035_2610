@@ -6,7 +6,7 @@ public abstract class Sensor extends Observable {
     public String type;
 
     public Sensor(String type, int interval) {
-        // TODO: 06/06/2021
+        (AlarmClock.theInstance()).register(interval,new SensorAlarmListener(this));
     }
 
     public abstract int read();
