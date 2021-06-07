@@ -5,10 +5,11 @@ import WS1.Observers.Observer;
 public class PresureTrendSensor extends Observable implements Observer {
     @Override
     public void update(int data) {
-
+        this.check(data);
     }
 
-    enum Trend {
+
+    public enum Trend {
         INCREMENT,
         STABLE,
         DECREMENT
@@ -20,12 +21,21 @@ public class PresureTrendSensor extends Observable implements Observer {
     public Trend presureState;
     public Trend lastState;
 
-    public Trend calc() {
+    public Trend calc(int data) {
+        lastReding3=lastReding2;
+        lastReding2=lastReding1;
+        lastReding1=data;
         if (lastReding1 < lastReding2 && lastReding2 < lastReding3)
             return Trend.INCREMENT;
         else if (lastReding1 > lastReding2 && lastReding2 > lastReding3)
             return Trend.DECREMENT;
         else
             return Trend.STABLE;
+    }
+    public void check(int data){
+        lastState =calc(data);
+        if(presureState!=lastState)
+            notifyObservers(lastState.ordinal());
+        presureState = lastState;
     }
 }
