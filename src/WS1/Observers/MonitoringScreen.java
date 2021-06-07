@@ -14,12 +14,12 @@ public class MonitoringScreen {
         msTempObserver=new MSTempObserver(this);
         ws.addTemperatureObserver(msTempObserver);
     }
-    public static MonitoringScreen theInstance(WeatherMonitoringSystem ws){
+   /* public static MonitoringScreen theInstance(WeatherMonitoringSystem ws){
         if(monitoringScreen==null)
             monitoringScreen=new MonitoringScreen(ws);
         return monitoringScreen;
     }
-
+*/
     public void displayTemperature(int data){
         System.out.format("MonitoringScreen: temperature = %d Celsius\n",data);
     }

@@ -11,7 +11,6 @@ public class WeatherMonitoringSystem {
     protected AlarmClock nimbus1Clock;
     protected Sensor nimbus1PresureSensor;
     protected Sensor nimbus1TempratureSensor;
-    protected MonitoringScreen monitoringScreen;
     protected PresureTrendSensor presureTrendSensor;
 
     protected WeatherMonitoringSystem() {
@@ -20,7 +19,6 @@ public class WeatherMonitoringSystem {
         nimbus1TempratureSensor = new Nimbus1TempratureSensor("temperature", 700);
         presureTrendSensor=new PresureTrendSensor();
         this.addPressureObserver(presureTrendSensor);
-        monitoringScreen = new MonitoringScreen(this);
     }
 
     public static WeatherMonitoringSystem theInstance() {
