@@ -10,9 +10,9 @@ public class PresureTrendSensor extends Observable implements Observer {
 
 
     public enum Trend {
-        INCREMENT,
+        RISING,
         STABLE,
-        DECREMENT
+        FALLING
     }
 
     public int lastReding1;
@@ -22,19 +22,20 @@ public class PresureTrendSensor extends Observable implements Observer {
     public Trend lastState;
 
     public Trend calc(int data) {
-        lastReding3=lastReding2;
-        lastReding2=lastReding1;
-        lastReding1=data;
+        lastReding3 = lastReding2;
+        lastReding2 = lastReding1;
+        lastReding1 = data;
         if (lastReding1 < lastReding2 && lastReding2 < lastReding3)
-            return Trend.INCREMENT;
+            return Trend.RISING;
         else if (lastReding1 > lastReding2 && lastReding2 > lastReding3)
-            return Trend.DECREMENT;
+            return Trend.FALLING;
         else
             return Trend.STABLE;
     }
-    public void check(int data){
-        lastState =calc(data);
-        if(presureState!=lastState)
+
+    public void check(int data) {
+        lastState = calc(data);
+        if (presureState != lastState)
             notifyObservers(lastState.ordinal());
         presureState = lastState;
     }

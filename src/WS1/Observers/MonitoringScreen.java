@@ -8,18 +8,14 @@ public class MonitoringScreen {
     private MSPressObserver mSPressObserver;
     private MSTempObserver msTempObserver;
     public MonitoringScreen(WeatherMonitoringSystem ws) {
+        System.out.println("MonitoringScreen was created");
         this.ws=ws;
         mSPressObserver=new MSPressObserver(this);
         ws.addPressureObserver(mSPressObserver);
         msTempObserver=new MSTempObserver(this);
         ws.addTemperatureObserver(msTempObserver);
     }
-   /* public static MonitoringScreen theInstance(WeatherMonitoringSystem ws){
-        if(monitoringScreen==null)
-            monitoringScreen=new MonitoringScreen(ws);
-        return monitoringScreen;
-    }
-*/
+
     public void displayTemperature(int data){
         System.out.format("MonitoringScreen: temperature = %d Celsius\n",data);
     }
