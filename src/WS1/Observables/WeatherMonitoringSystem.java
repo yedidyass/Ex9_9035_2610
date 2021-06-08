@@ -1,9 +1,8 @@
 package WS1.Observables;
 
 import WS1.Nimbus1.Nimbus1Clock;
-import WS1.Nimbus1.Nimbus1PresureSensor;
-import WS1.Nimbus1.Nimbus1TempratureSensor;
-import WS1.Observers.MonitoringScreen;
+import WS1.Nimbus1.Nimbus1PressureSensor;
+import WS1.Nimbus1.Nimbus1TemepratureSensor;
 import WS1.Observers.Observer;
 
 public class WeatherMonitoringSystem {
@@ -11,14 +10,14 @@ public class WeatherMonitoringSystem {
     protected AlarmClock nimbus1Clock;
     protected Sensor nimbus1PresureSensor;
     protected Sensor nimbus1TempratureSensor;
-    protected PresureTrendSensor presureTrendSensor;
+    protected PressureTrendSensor presureTrendSensor;
 
     protected WeatherMonitoringSystem() {
         System.out.println("WeatherMonitoringSystem was created");
         nimbus1Clock = Nimbus1Clock.theInstance();
-        nimbus1PresureSensor = new Nimbus1PresureSensor("pressure", 1100);
-        nimbus1TempratureSensor = new Nimbus1TempratureSensor("temperature", 700);
-        presureTrendSensor = new PresureTrendSensor();
+        nimbus1PresureSensor = new Nimbus1PressureSensor("pressure", 1100);
+        nimbus1TempratureSensor = new Nimbus1TemepratureSensor("temperature", 700);
+        presureTrendSensor = new PressureTrendSensor();
         this.addPressureObserver(presureTrendSensor);
     }
 

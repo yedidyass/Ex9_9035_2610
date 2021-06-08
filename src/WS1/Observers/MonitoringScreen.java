@@ -22,6 +22,6 @@ public class MonitoringScreen {
     }
 
     public void displayPressure(int data) {
-        System.out.format("MonitoringScreen: pressure = %d millibar\n", data);
+        System.out.format("MonitoringScreen: pressure = %d millibars\n", data);
     }
 }

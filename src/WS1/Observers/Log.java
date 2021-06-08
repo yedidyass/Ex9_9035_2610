@@ -1,6 +1,6 @@
 package WS1.Observers;
 
-import WS1.Observables.PresureTrendSensor;
+import WS1.Observables.PressureTrendSensor;
 import WS1.Observables.WeatherMonitoringSystem;
 
 public class Log {
@@ -22,8 +22,8 @@ public class Log {
     }
 
     public void printTrend(int data) {
-        PresureTrendSensor.Trend trend;
-        trend = PresureTrendSensor.Trend.values()[data];
+        PressureTrendSensor.Trend trend;
+        trend = PressureTrendSensor.Trend.values()[data];
         System.out.format("Log: pressure trend = %s\n", trend.name());
     }
 }
