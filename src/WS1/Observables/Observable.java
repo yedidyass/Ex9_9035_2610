@@ -8,9 +8,10 @@ import java.util.List;
 public class Observable {
     private List<Observer> observerCollection;
 
-    public Observable(){
+    public Observable() {
         this.observerCollection = new ArrayList<Observer>();
     }
+
     public void registerObserver(Observer observer) {
         observerCollection.add(observer);
     }

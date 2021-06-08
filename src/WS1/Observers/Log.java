@@ -11,10 +11,10 @@ public class Log {
     public Log(WeatherMonitoringSystem ws) {
         System.out.println("Log was created");
         this.ws = ws;
-        logPressTrendObserver = new LogPressTrendObserver(this);
-        ws.addPressureTrendObserver(logPressTrendObserver);
         logPressObserver = new LogPressObserver(this);
         ws.addPressureObserver(logPressObserver);
+        logPressTrendObserver = new LogPressTrendObserver(this);
+        ws.addPressureTrendObserver(logPressTrendObserver);
     }
 
     public void printPressure(int data) {

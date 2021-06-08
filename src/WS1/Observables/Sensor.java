@@ -6,7 +6,8 @@ public abstract class Sensor extends Observable {
     public String type;
 
     public Sensor(String type, int interval) {
-        (AlarmClock.theInstance()).register(interval,new SensorAlarmListener(this));
+        (AlarmClock.theInstance()).register(interval, new SensorAlarmListener(this));
+        System.out.println(type + " registered to clock");
     }
 
     public abstract int read();

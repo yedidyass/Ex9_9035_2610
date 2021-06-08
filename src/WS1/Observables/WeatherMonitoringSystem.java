@@ -14,10 +14,11 @@ public class WeatherMonitoringSystem {
     protected PresureTrendSensor presureTrendSensor;
 
     protected WeatherMonitoringSystem() {
+        System.out.println("WeatherMonitoringSystem was created");
         nimbus1Clock = Nimbus1Clock.theInstance();
-        nimbus1PresureSensor = new Nimbus1PresureSensor("Pressure", 1100);
+        nimbus1PresureSensor = new Nimbus1PresureSensor("pressure", 1100);
         nimbus1TempratureSensor = new Nimbus1TempratureSensor("temperature", 700);
-        presureTrendSensor=new PresureTrendSensor();
+        presureTrendSensor = new PresureTrendSensor();
         this.addPressureObserver(presureTrendSensor);
     }
 
@@ -30,11 +31,16 @@ public class WeatherMonitoringSystem {
 
     public void addPressureObserver(Observer observer) {
         nimbus1PresureSensor.registerObserver(observer);
+        System.out.println(observer.getClass().getSimpleName() + " observes pressure");
     }
+
     public void addPressureTrendObserver(Observer observer) {
         presureTrendSensor.registerObserver(observer);
+        System.out.println(observer.getClass().getSimpleName() + " observes pressure trend");
     }
+
     public void addTemperatureObserver(Observer observer) {
         nimbus1TempratureSensor.registerObserver(observer);
+        System.out.println(observer.getClass().getSimpleName() + " observes temperature");
     }
 }
